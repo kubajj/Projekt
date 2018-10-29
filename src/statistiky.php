@@ -12,8 +12,10 @@
 
 	<body>	
 		<?php include 'nav.php';?>
-		<div class="obsah">			
-			<p id="obsah">Toto někdy bude obsah.</p>
+		<div class="container">
+			<div class="jumbotron">			
+				<p class="obsah"> Sem také něco přijde, nebo to zruším, ještě se uvidí. </p>
+			</div>			
 		</div>
 		<?php include 'footer.php';?>
 	</body>

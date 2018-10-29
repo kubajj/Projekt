@@ -12,9 +12,10 @@
 
 	<body>	
 		<?php include 'nav.php';?>
-		<div class="obsah">			
-			<p id="obsah">Toto někdy bude obsah.</p>
-			<!--button>x<sup>2</sup></button-->
+		<div class="container">
+			<div class="jumbotron">			
+				<p class="obsah"> Vítej. </p>
+			</div>			
 		</div>
 		<?php include 'footer.php';?>
 	</body>
