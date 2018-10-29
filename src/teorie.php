@@ -14,7 +14,7 @@
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<div class="navbar-header">
-      				<a href="index.html" class="navbar-brand" href="#"><img src="logo.png" style="height:25px;" class="logo"></a>
+      				<a href="index.php" class="navbar-brand" href="#"><img src="logo.png" style="height:25px;" class="logo"></a>
     			</div>
     			<div  class="nav navbar-nav">
 					<div class="btn-group">
@@ -24,17 +24,17 @@
 							</a>
 							</button>
 				    		<ul class="dropdown-menu" role="menu">
-					      		<li><a href="index.html">Home</a></li>
-			      				<li><a href="teorie.html">Teorie</a></li>
-			      				<li><a href="procvicovani.html">Procvičování</a></li>
-			      				<li><a href="statistiky.html">Statistiky</a></li>
-			      				<li><a href="profil.html">Profil</a></li>
+					      		<li><a href="index.php">Home</a></li>
+			      				<li><a href="teorie.php">Teorie</a></li>
+			      				<li><a href="procvicovani.php">Procvičování</a></li>
+			      				<li><a href="statistiky.php">Statistiky</a></li>
+			      				<li><a href="profil.php">Profil</a></li>
 					    	</ul>
 					</div>
 				</div>
 				<ul class="nav navbar-nav navbar-right">
-			      <li><a href="registrace.html"><div class="registrace"><span class="glyphicon glyphicon-user"></span> Sign Up</div></a></li>
-			      <li><a href="login.html"><div class="registrace"><span class="glyphicon glyphicon-log-in"></span> Login</div></a></li>
+			      <li><a href="registrace.php"><div class="registrace"><span class="glyphicon glyphicon-user"></span> Sign Up</div></a></li>
+			      <li><a href="login.php"><div class="registrace"><span class="glyphicon glyphicon-log-in"></span> Login</div></a></li>
 			    </ul>
 			    <div class="search">
 					<form class="navbar-form navbar-right" action="#">

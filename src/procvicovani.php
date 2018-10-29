@@ -8,14 +8,13 @@
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="style.css">
-		<script src="generate.js"></script>
 	</head>
 
 	<body>	
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<div class="navbar-header">
-      				<a href="index.html" class="navbar-brand" href="#"><img src="logo.png" style="height:25px;" class="logo"></a>
+      				<a href="index.php" class="navbar-brand" href="#"><img src="logo.png" style="height:25px;" class="logo"></a>
     			</div>
     			<div  class="nav navbar-nav">
 					<div class="btn-group">
@@ -23,24 +22,34 @@
 				    		<a href="javascript:void(0)">
 								<img src="menuicon.png"style="width:50px;height:50px;">
 							</a>
-						</button>
-				    	<ul class="dropdown-menu" role="menu">
-					    	<li><a href="index.html">Home</a></li>
-			      			<li><a href="teorie.html">Teorie</a></li>
-			      			<li><a href="procvicovani.html">Procvičování</a></li>
-			      			<li><a href="statistiky.html">Statistiky</a></li>
-			      			<li><a href="profil.html">Profil</a></li>
-					    </ul>
+							</button>
+				    		<ul class="dropdown-menu" role="menu">
+					      		<li><a href="index.php">Home</a></li>
+			      				<li><a href="teorie.php">Teorie</a></li>
+			      				<li><a href="procvicovani.php">Procvičování</a></li>
+			      				<li><a href="statistiky.php">Statistiky</a></li>
+			      				<li><a href="profil.php">Profil</a></li>
+					    	</ul>
 					</div>
 				</div>
 				<ul class="nav navbar-nav navbar-right">
-			      <li><a href="registrace.html"><div class="registrace"><span class="glyphicon glyphicon-user"></span> Sign Up</div></a></li>
-			      <li><a href="login.html"><div class="registrace"><span class="glyphicon glyphicon-log-in"></span> Login</div></a></li>
+			      <li><a href="registrace.php"><div class="registrace"><span class="glyphicon glyphicon-user"></span> Sign Up</div></a></li>
+			      <li><a href="login.php"><div class="registrace"><span class="glyphicon glyphicon-log-in"></span> Login</div></a></li>
 			    </ul>
 			    <div class="search">
 					<form class="navbar-form navbar-right" action="#">
 				      	<div class="input-group">
-						    <input type="text" class="form-control" placeholder="Search" data-toggle="tooltip" title="Vyhledávání">
+						    <input class="form-control" id="myInput" type="text" placeholder="Search.." data-toggle="tooltip" title="Vyhledávání">
+						    <script>
+								$(document).ready(function(){
+								  $("#myInput").on("keyup", function() {
+								    var value = $(this).val().toLowerCase();
+								    $("#myDIV *").filter(function() {
+								      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+								    });
+								  });
+								});
+							</script>
 						    <div class="input-group-btn">
 						      <button class="btn btn-default" type="submit">
 						        <i class="glyphicon glyphicon-search"></i>
