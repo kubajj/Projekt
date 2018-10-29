@@ -22,17 +22,29 @@ function genRovnice() {
 		lin = 1;
 	}
 	if (cubic != 0) {
-		cubic += "x<sup>3</sup>";
+		if (cubic == 1) {
+			cubic = "x<sup>3</sup>";
+		} else {
+			cubic += "x<sup>3</sup>";
+		}
 	} else {
 		cubic = "";
 	}
 	if (sqr != 0) {
-		sqr += "x<sup>2</sup>";
+		if (sqr == 1) {
+			sqr = "x<sup>2</sup>";
+		} else {
+			sqr += "x<sup>2</sup>";
+		}
 	} else {
 		sqr = "";
 	}
 	if (lin != 0) {
-		lin += "x";
+		if (lin == 1) {
+			lin = "x";
+		} else {
+			lin += "x";
+		}
 	} else {
 		lin = "";
 	}
