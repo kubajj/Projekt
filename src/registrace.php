@@ -11,89 +11,83 @@
 	</head>
 
 	<body>	
-		<nav class="navbar navbar-inverse">
-			<div class="container-fluid">
-				<div class="navbar-header">
-      				<a href="index.php" class="navbar-brand" href="#"><img src="logo.png" style="height:25px;" class="logo"></a>
-    			</div>
-    			<div  class="nav navbar-nav">
-					<div class="btn-group">
-				  		<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" title="Hlavní nabídka">
-				    		<a href="javascript:void(0)">
-								<img src="menuicon.png"style="width:50px;height:50px;">
-							</a>
-							</button>
-				    		<ul class="dropdown-menu" role="menu">
-					      		<li><a href="index.php">Home</a></li>
-			      				<li><a href="teorie.php">Teorie</a></li>
-			      				<li><a href="procvicovani.php">Procvičování</a></li>
-			      				<li><a href="statistiky.php">Statistiky</a></li>
-			      				<li><a href="profil.php">Profil</a></li>
-					    	</ul>
-					</div>
-				</div>
-				<ul class="nav navbar-nav navbar-right">
-			      <li><a href="registrace.php"><div class="registrace"><span class="glyphicon glyphicon-user"></span> Sign Up</div></a></li>
-			      <li><a href="login.php"><div class="registrace"><span class="glyphicon glyphicon-log-in"></span> Login</div></a></li>
-			    </ul>
-			    <div class="search">
-					<form class="navbar-form navbar-right" action="#">
-				      	<div class="input-group">
-						    <input class="form-control" id="myInput" type="text" placeholder="Search.." data-toggle="tooltip" title="Vyhledávání">
-						    <script>
-								$(document).ready(function(){
-								  $("#myInput").on("keyup", function() {
-								    var value = $(this).val().toLowerCase();
-								    $("#myDIV *").filter(function() {
-								      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-								    });
-								  });
-								});
-							</script>
-						    <div class="input-group-btn">
-						      <button class="btn btn-default" type="submit">
-						        <i class="glyphicon glyphicon-search"></i>
-						      </button>
-						    </div>
-						</div>
-				    </form>	
-			    </div>			
-			</div>
-		</nav>
-<!-------------- nutné u všech ------------------------------>
+		<?php include 'nav.php';?>
+		<?php
+		// define variables and set to empty values
+		$nameErr = $emailErr = $passwordErr = "";
+		$name = $email = $password = "";
+
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		  if (empty($_POST["name"])) {
+		    $nameErr = "Uživatelské jméno je povinné";
+		  } else {
+		    $name = test_input($_POST["name"]);
+		    // check if name only contains letters and whitespace
+		    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+		      $nameErr = "Only letters and white space allowed";
+		    }
+		  }
+		  
+		  if (empty($_POST["email"])) {
+		    $emailErr = "Emailová adresa je povinná";
+		  } else {
+		    $email = test_input($_POST["email"]);
+		    // check if e-mail address is well-formed
+		    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		      $emailErr = "Invalid email format";
+		    }
+		  }
+		  if (empty($_POST["password"])) {
+		    $passwordErr = "Heslo je povinné";
+		  } else {
+		    $password = test_input($_POST["email"]);
+		  }
+		}
+		function test_input($data) {
+		  $data = trim($data);
+		  $data = stripslashes($data);
+		  $data = htmlspecialchars($data);
+		  return $data;
+		}
+		?>
 		<div class="container">
 			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
 				<div class="jumbotron">						
 					<div class="obsah">					
-						<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+						<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 							<div class="input-group">
 							    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-							    <input id="name" type="text" class="form-control" name="name" placeholder="Uživatelské jméno *">
-							    <span class="error"><?php echo $nameErr;?></span>
+							    <input id="name" type="text" class="form-control" name="name" placeholder="Uživatelské jméno *" value="<?php echo $name;?>">
 							</div>
+							<span class="error"><?php echo $nameErr;?></span>
 							<div class="input-group">
 							    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-							    <input id="email" type="text" class="form-control" name="email" placeholder="Email *">
-							    <span class="error"><?php echo $emailErr;?></span>
+							    <input id="email" type="text" class="form-control" name="email" placeholder="Email *" value="<?php echo $email;?>">							    
 							</div>
+							<span class="error"><?php echo $emailErr;?></span>
 							<div class="input-group">
 							    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-							    <input id="password" type="password" class="form-control" name="password" placeholder="Heslo *">
+							    <input id="password" type="text" class="form-control" name="password" placeholder="Heslo *" value="<?php echo $password;?>">
 							</div>
-						  	<div class="checkbox">
-						    	<label><input type="checkbox"> Pamatovat si mě</label>
-						  	</div>
+							<span class="error"><?php echo $passwordErr;?></span>
+						  	<!--div class="checkbox">
+						    	<label><input name="remember" id="remember" type="checkbox" value="<?php /*echo*/ $remember;?>"> Pamatovat si mě</label>
+						  	</div-->
 							<p><span class="pov">* povinné pole</span></p>
-						  	<button type="submit" class="btn btn-default">Potvrdit</button>
+						  	<button type="submit" class="btn btn-default" value="Submit">Potvrdit</button>
 						</form> 
 					</div>
 				</div>
 			</div>
 		</div>
-		<footer>
-			<a href="https://www.alej.cz" target="_blank">
-				<img  src="GNA.jpg" alt="Gymnázium Nad Alejí" class="img-circle" alt="Gymnázium Nad Alejí">
-			</a> 
-		</footer>
+		<?php
+		echo "<h2>Your Input:</h2>";
+		echo $name;
+		echo "<br>";
+		echo $email;
+		echo "<br>";
+		echo $password;
+		?>
+		<?php include 'footer.php';?>
 	</body>
 </html>    

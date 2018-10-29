@@ -69,3 +69,6 @@ function Aritmetika() {
 	priklad += " = ";
 	return priklad;
 }
+/*function reseni() {
+	return document.getElementById('reseni').innerHTML = <?php include 'nav.php';?>;
+}*/
