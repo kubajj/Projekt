@@ -22,6 +22,21 @@
 				<button type="button" class="btn" onclick="document.getElementById('obs').innerHTML = Aritmetika();document.getElementById('obrazek').src = ''">Aritmetika</button>			
 			</div>
 		</div>
+
+		<!--div id="procvicovani" class="btn-group">
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" title="Procvičování">
+				<a href="javascript:void(0)">
+					<h1 id="procvicovani">Procvičování</h1>
+				</a>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<button type="button" class="btn" onclick="rovnice(); oObrazek(); /*reseni()*/">Rovnice</button>
+				<button type="button" class="btn" 
+				onclick="funkce(); obrazek('funkce.png')">Funkce</button>
+				<button type="button" class="btn" onclick="document.getElementById('obs').innerHTML = Aritmetika();document.getElementById('obrazek').src = ''">Aritmetika</button>			
+			</ul>
+		</div-->
+
 		<div class="container">			
 			<div class="col-sm-12">
 				<div class="jumbotron">	

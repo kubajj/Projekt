@@ -73,11 +73,10 @@ footer img {
 	margin: auto;
 }
 .vyber .btn-group {
-	margin-left: 40%;
+	margin-left: 43%;
 }
 .vyber button {
 	color: white;
-	margin-left: auto;
 	background-color: #a20c16;
 	margin: 0px 2px;
 }
@@ -92,4 +91,16 @@ footer img {
 }
 .obrazek {
 	width: 100%;
+}
+.like {
+	text-align: center;
+	color: black;
+}
+.cudlik {
+	max-height: 100px;
+}
+.procvicovani {
+	text-align: center;
+	margin: auto;
+	color: white;
 }
